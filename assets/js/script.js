@@ -11,6 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
     }
+    document.getElementById('answer-box').addEventListener('keydown', function(event) {
+        if (event.key === 'enter') {
+            checkAnswer();
+        }
+    })
     runGame('addition');
 });
 
@@ -19,6 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
  * after the user's answer has been processed.
  */
 function runGame(gameType) {
+
+    document.getElementById('answer-box').value = "";
+    document.getElementById('answer-box').focus();
+
     //create two random numbers
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
